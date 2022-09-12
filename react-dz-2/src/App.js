@@ -34,10 +34,18 @@ function App() {
                 <input className='text-center' ref={inputRef} type="text"
                        onKeyDown={(keyDown) => addTodo(inputRef.current.value, keyDown.key)}/>
             </div>
-            <div className='d-flex flex-column align-items-center mt-3'>
-                {!todos.length ? <div className='text-center'>No todos</div> :
-                todos.map(task => <Todo task={task} onChange={onChange} onDelete={onDelete} key={task.id}/>)}
-            </div>
+            <table className='mx-auto mt-4'>
+                {!todos.length ?
+                    <tbody className='text-center'>
+                    <tr><td>No todos</td></tr>
+                    </tbody> :
+
+                    <tbody>
+                    {todos.map(task => <Todo task={task} onChange={onChange} onDelete={onDelete} key={task.id}/>)}
+                    </tbody>
+                }
+            </table>
+
         </div>
     );
 }
