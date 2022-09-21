@@ -10,7 +10,7 @@ const UserPost = ({post}) => {
                         <hr/>
                         <div className="post__body text-start">{post.body}</div>
                         <div className="post__tags mt-3">
-                            {post.tags.map(tag => (
+                            {post.tags?.map(tag => (
                                 <span className="badge bg-secondary me-1 mb-3" key={tag}>#{tag}</span>
                             ))}
                         </div>
