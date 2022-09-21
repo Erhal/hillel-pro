@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Trash2} from "react-bootstrap-icons";
+import AppContext from "../../providers/AppContext";
 
-const Todo = ({task, onChange, onDelete}) => {
+const Todo = ({task}) => {
+
+    const {onChange, onDelete} = useContext(AppContext);
+
     return (
         <tr>
             <td>
@@ -13,7 +17,7 @@ const Todo = ({task, onChange, onDelete}) => {
             </td>
             <td>
                 {task.completed ? <span style={{cursor: 'pointer'}} onClick={() => onDelete(task.id)}><Trash2/></span> :
-                    <Trash2 style={{color: 'gray'}} />}
+                    <span style={{color: 'gray'}}><Trash2/></span>}
             </td>
         </tr>
     )
