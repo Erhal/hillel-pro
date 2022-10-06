@@ -11,7 +11,7 @@ export const todosSlice = createSlice({
     reducers: {
         addTodo: (state, {payload}) => {
             state.todos.push({
-                id: Math.max(...state.todos.map(todo => todo.id), 0) + 1,
+                id: Math.max(...state.todos?.map(todo => todo.id), 0) + 1,
                 todo: payload,
                 completed: false
             });

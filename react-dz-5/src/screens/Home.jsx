@@ -9,19 +9,19 @@ const Home = () => {
     const [isAllChecked, setIsAllChecked] = useState(false);
     const [isSomeChecked, setIsSomeChecked] = useState(false);
 
-    const {isLoading, isSuccess} = useGetAllTodosQuery();
+    const {isLoading, isSuccess, isError} = useGetAllTodosQuery();
     const {todos} = useSelector(state => state.todos);
 
     const dispatch = useDispatch();
     const inputRef = createRef();
 
     useEffect(() => {
-        todos.map(todo => todo.completed).every(el => el === true) ?
+        todos?.map(todo => todo.completed).every(el => el === true) ?
             setIsAllChecked(true) : setIsAllChecked(false);
     }, [todos]);
 
     useEffect(() => {
-        todos.map(todo => todo.completed).some(el => el === true) ?
+        todos?.map(todo => todo.completed).some(el => el === true) ?
             setIsSomeChecked(true) : setIsSomeChecked(false);
     }, [todos]);
 
@@ -43,6 +43,7 @@ const Home = () => {
             </div>
             <table className='mx-auto mt-4'>
                 {isLoading && <tbody className='text-center'><tr><td>Loading...</td></tr></tbody>}
+                {isError && <tbody className='text-center'><tr><td>Oops, something went wrong!</td></tr><tr><td>Please, try again later</td></tr></tbody>}
                 {isSuccess && todos.length === 0 && <tbody className='text-center'><tr><td>No todos</td></tr></tbody>}
                 {isSuccess && todos.length > 0 &&
                     <tbody>
