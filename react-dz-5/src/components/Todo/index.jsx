@@ -1,7 +1,7 @@
 import React from 'react';
-import {Trash2} from "react-bootstrap-icons";
 import {useDispatch} from "react-redux";
 import {deleteTodo, toggleTodo} from "../../store/slices/todos";
+import {Trash2} from "react-bootstrap-icons";
 
 const Todo = ({todo}) => {
     const dispatch = useDispatch();
@@ -16,7 +16,8 @@ const Todo = ({todo}) => {
                     <span className='mx-3'>{todo.todo}</span>}
             </td>
             <td>
-                {todo.completed ? <span style={{cursor: 'pointer'}} onClick={() => dispatch(deleteTodo(todo.id))}><Trash2/></span> :
+                {todo.completed ?
+                    <span style={{cursor: 'pointer'}} onClick={() => dispatch(deleteTodo(todo.id))}><Trash2/></span> :
                     <span style={{color: 'gray'}}><Trash2/></span>}
             </td>
         </tr>
