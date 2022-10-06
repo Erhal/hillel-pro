@@ -44,8 +44,8 @@ const Home = () => {
             <table className='mx-auto mt-4'>
                 {isLoading && <tbody className='text-center'><tr><td>Loading...</td></tr></tbody>}
                 {isError && <tbody className='text-center'><tr><td>Oops, something went wrong!</td></tr><tr><td>Please, try again later</td></tr></tbody>}
-                {isSuccess && todos.length === 0 && <tbody className='text-center'><tr><td>No todos</td></tr></tbody>}
-                {isSuccess && todos.length > 0 &&
+                {isSuccess && todos?.length === 0 && <tbody className='text-center'><tr><td>No todos</td></tr></tbody>}
+                {isSuccess && todos?.length > 0 &&
                     <tbody>
                         <tr>
                             <td>

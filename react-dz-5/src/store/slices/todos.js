@@ -12,7 +12,7 @@ export const todosSlice = createSlice({
         addTodo: (state, {payload}) => {
             state.todos.push({
                 id: Math.max(...state.todos?.map(todo => todo.id), 0) + 1,
-                todo: payload,
+                title: payload,
                 completed: false
             });
         },

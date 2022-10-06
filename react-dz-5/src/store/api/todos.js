@@ -9,7 +9,7 @@ export const todosApi = createApi({
         getAllTodos: builder.query({
             query: () => 'todos',
             transformResponse: (response) => {
-                return response.todos
+                return response
             }
         })
     })

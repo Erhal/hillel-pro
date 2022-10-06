@@ -12,8 +12,8 @@ const Todo = ({todo}) => {
                 <input type="checkbox" checked={todo.completed} onChange={() => dispatch(toggleTodo(todo.id))}/>
             </td>
             <td>
-                {todo.completed ? <span className='mx-3' style={{textDecoration: 'line-through'}}>{todo.todo}</span> :
-                    <span className='mx-3'>{todo.todo}</span>}
+                {todo.completed ? <span className='mx-3' style={{textDecoration: 'line-through'}}>{todo.title}</span> :
+                    <span className='mx-3'>{todo.title}</span>}
             </td>
             <td>
                 {todo.completed ?
