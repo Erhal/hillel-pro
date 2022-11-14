@@ -1,13 +1,11 @@
 import AsyncSelect from "react-select/async";
 import {Controller} from "react-hook-form";
-import {useRef, useState} from "react";
+import {useState} from "react";
 import Form from "react-bootstrap/Form";
 
 const CitiesSelect = ({control, name}) => {
 
     const [citiesArr, setCitiesArr] = useState([]);
-
-    const selectRef = useRef();
 
     const loadOptions = async (inputValue, callback) => {
         try {
@@ -52,7 +50,6 @@ const CitiesSelect = ({control, name}) => {
             render={({field: {value, onChange, onBlur,}, fieldState: {error}}) => (
                 <>
                     <AsyncSelect
-                        ref={selectRef}
                         cacheOptions
                         placeholder={'Select city'}
                         loadOptions={loadOptions}
