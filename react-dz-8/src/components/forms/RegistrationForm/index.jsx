@@ -38,7 +38,7 @@ const RegistrationForm = () => {
                                 required: "First name is required",
                                 pattern: {
                                     value: /^[A-Z-']+$/gi,
-                                    message: "First name should contain only letters, dashes and apostrophes"
+                                    message: "First name should contain only latin letters, dashes and apostrophes"
                                 },
                             })}
                         />
@@ -78,7 +78,7 @@ const RegistrationForm = () => {
                             {...register("email", {
                                 required: "Email is required",
                                 pattern: {
-                                    value: /^[A-Z0-9_.\-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/gi,
+                                    value: /^[A-Z0-9_.-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/gi,
                                     message: "Invalid email address"
                                 },
                             })}
