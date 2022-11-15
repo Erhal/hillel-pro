@@ -98,7 +98,7 @@ const RegistrationForm = () => {
                             {...register("phone", {
                                 required: "Phone is required",
                                 pattern: {
-                                    value: /^\+380\s\(((67)|(96)|(97)|(98)|(50)|(66)|(95)|(99)|(63)|(73)|(93))\)\s\d{3}-\d{2}-\d{2}$/gi,
+                                    value: /^\+380\s\((67|96|97|98|50|66|95|99|63|73|93)\)\s\d{3}-\d{2}-\d{2}$/gi,
                                     message: `Invalid phone. Example: +380(67)XXX-XX-XX`
                                 },
                                 onChange: (e) => {
