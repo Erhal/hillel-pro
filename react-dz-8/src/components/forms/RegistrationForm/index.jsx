@@ -11,7 +11,7 @@ import './style.css';
 
 const RegistrationForm = () => {
     const {register, handleSubmit, formState: {errors}, clearErrors, watch, control} = useForm({mode: "all"});
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => console.log(data, errors);
 
     const confirmPasswordRef = useRef();
     const {ref, ...rest} = register('confirmPassword')
@@ -101,7 +101,10 @@ const RegistrationForm = () => {
                                     value: /^\+380\s\(\d{2}\)\s\d{3}-\d{2}-\d{2}$/gi,
                                     message: "Required format: +380 (XX) XXX-XX-XX"
                                 },
-                                onChange: (e) => e.target.value = getNormalizedPhone(e.target.value)
+                                onChange: (e) => {
+                                    e.position = e.target.value.length;
+                                    e.target.value = getNormalizedPhone(e.target.value);
+                                }
                             })}
                         />
                         <Form.Text className="text-danger">

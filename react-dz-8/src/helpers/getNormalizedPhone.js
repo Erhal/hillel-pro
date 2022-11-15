@@ -11,7 +11,7 @@ const getNormalizedPhone = (value) => {
     if(value.length === 6) value = `+${value.slice(0, 3)} (${value.slice(3, 5)}) ${value.slice(5)}`;
     if(value.length === 5) value = `+${value.slice(0, 3)} ${value.slice(3, 5)}`;
     if(value.length === 4) value = `+${value.slice(0, 3)} ${value.slice(3)}`;
-    if(value.length < 4) value = `+380`;
+    if(value.slice(0, 4) !== '+380') value = `+380`;
 
     return value;
 }
