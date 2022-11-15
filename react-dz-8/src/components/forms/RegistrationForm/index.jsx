@@ -24,9 +24,9 @@ const RegistrationForm = () => {
     return (
         <div className='min-vh-100 d-flex flex-column justify-content-center align-items-center'>
 
-            <div><h3 className='text-center text-muted mb-4'>Create your account</h3></div>
 
             <Form className='w-50 bg-body p-5 rounded-5 form-shadow' onSubmit={handleSubmit(onSubmit)}>
+            <div><h1 className='display-6 fw-semibold text-center text-muted mb-5'>Create your account</h1></div>
 
                 <div className='d-flex gap-2'>
                     <Form.Group className="w-50 mb-4" controlId="formFirstName">
