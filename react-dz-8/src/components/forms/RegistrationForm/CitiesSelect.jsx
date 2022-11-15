@@ -3,9 +3,20 @@ import {Controller} from "react-hook-form";
 import {useState} from "react";
 import Form from "react-bootstrap/Form";
 
-const CitiesSelect = ({control, name}) => {
+const CitiesSelect = ({control, name, error}) => {
 
     const [citiesArr, setCitiesArr] = useState([]);
+
+    const selectStyles = {
+        control: (base, state) => ({
+            ...base,
+            borderRadius: '0.375rem',
+            borderColor: error ? state.isFocused ? '#dc3545' : '#dc3545' : state.isFocused ? '#80bdff' : '#ced4da',
+            boxShadow: state.isFocused ? error ? '0 0 0 0.25rem rgba(220,53,69,.25)' : '0 0 0 0.25rem rgba(13, 110, 253, 0.25)' : 'none',
+            '&:hover': {
+            },
+        })
+    }
 
     const loadOptions = async (inputValue, callback) => {
         try {
@@ -15,7 +26,7 @@ const CitiesSelect = ({control, name}) => {
                 }
             }));
             const response = await fetch(
-                `https://parseapi.back4app.com/classes/Ukraine_City?limit=6&order=name&keys=name&where=${where}`,
+                `https://parseapi.back4app.com/classes/Ukraine_City?limit=3&order=name&keys=name&where=${where}`,
                 {
                     headers: {
                         'X-Parse-Application-Id': '9YBHm9Sgf1WylMCHD0pkiRn6ONZ8DnE7T8SaLINS',
@@ -51,6 +62,7 @@ const CitiesSelect = ({control, name}) => {
                 <>
                     <AsyncSelect
                         cacheOptions
+                        styles={selectStyles}
                         placeholder={'Select city'}
                         loadOptions={loadOptions}
                         noOptionsMessage={() => 'Start typing...'}
@@ -63,7 +75,8 @@ const CitiesSelect = ({control, name}) => {
                     </Form.Text>
                 </>
             )
-            }/>
+            }
+        />
     );
 };
 export default CitiesSelect;

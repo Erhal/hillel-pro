@@ -167,7 +167,7 @@ const RegistrationForm = () => {
                 <div className='d-flex gap-2'>
                     <Form.Group className="w-50 mb-4" controlId="formCitySelect">
                         <Form.Label>City</Form.Label>
-                        <CitiesSelect control={control} name={'city'}/>
+                        <CitiesSelect control={control} name={'city'} error={errors.city}/>
                     </Form.Group>
                     <div className="w-50 mb-3 d-flex justify-content-center align-items-center">
                         <Button variant="outline-success" type="submit" className="w-100">
